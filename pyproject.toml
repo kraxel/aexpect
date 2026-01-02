@@ -7,7 +7,7 @@ name = "aexpect"
 description = "Python library used to control interactive programs"
 readme = "README.rst"
 dynamic = ["version"]
-license = "GPL-2.0-or-later"
+license = {text = "GPL-2.0-or-later"}
 authors = [{name = "Aexpect developers", email = "avocado-devel@redhat.com"}]
 maintainers = [{name = "Aexpect developers", email = "avocado-devel@redhat.com"}]
 requires-python = ">=3.8"
