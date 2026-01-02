@@ -667,7 +667,7 @@ def remote_copy(
     Transfer files using rsync or SCP, given a command line.
 
     :param command: The command to execute
-        (e.g. "rsync -avz -e 'ssh -p 22' /local/path user@host:/remote/path"
+        (e.g. "rsync -avz -e 'ssh -Tp 22' /local/path user@host:/remote/path"
         or "scp -r foobar root@localhost:/tmp/").
     :param password_list: Password list to send in reply to a password prompt.
     :param log_filename: If specified, log all output to this file
@@ -935,7 +935,7 @@ def rsync_to_remote(
     if directory:
         command += " -r"
     command += (
-        f" -avz -e 'ssh -p {port} -o UserKnownHostsFile=/dev/null "
+        f" -avz -e 'ssh -Tp {port} -o UserKnownHostsFile=/dev/null "
         f"-o StrictHostKeyChecking=no' {limit} "
         f"{quote_path(local_path)} {username}@{host}:{shlex.quote(remote_path)}"
     )
@@ -992,7 +992,7 @@ def rsync_from_remote(
     if directory:
         command += " -r"
     command += (
-        f" -avz -e 'ssh -p {port} -o UserKnownHostsFile=/dev/null "
+        f" -avz -e 'ssh -Tp {port} -o UserKnownHostsFile=/dev/null "
         f"-o StrictHostKeyChecking=no' {limit} "
         f"{username}@{host}:{quote_path(remote_path)} {shlex.quote(local_path)}"
     )
