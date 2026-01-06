@@ -95,7 +95,7 @@ class TestRemoteFunctions(unittest.TestCase):
         )
         self.assertEqual(
             mock_remote_copy.call_args[0][0].command,
-            r"rsync -r -avz -e 'ssh -p 22 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'  /local/path user@127.0.0.1:/remote/path",
+            r"rsync -r -avz -e 'ssh -Tp 22 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'  /local/path user@127.0.0.1:/remote/path",
         )
 
     @mock.patch("aexpect.remote._remote_copy")
@@ -129,5 +129,5 @@ class TestRemoteFunctions(unittest.TestCase):
         )
         self.assertEqual(
             mock_remote_copy.call_args[0][0].command,
-            r"rsync -r -avz -e 'ssh -p 22 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'  user@127.0.0.1:/remote/path /local/path",
+            r"rsync -r -avz -e 'ssh -Tp 22 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'  user@127.0.0.1:/remote/path /local/path",
         )
