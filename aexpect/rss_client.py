@@ -269,7 +269,7 @@ class FileTransferClient:
 
     def _handle_transfer_error(self):
         # Save original exception
-        (_type, error, traceback) = sys.exc_info()
+        _type, error, traceback = sys.exc_info()
         try:
             # See if we can get an error message
             msg = self._receive_msg()
