@@ -572,8 +572,7 @@ def curl(session, url, proxy_address=None, proxy_port=None, insecure=False):
     """
     # extra indentation is not allowed within PS heredocs
     # pylint: disable=C0301
-    skip_ssl_template = dedent(
-        """\
+    skip_ssl_template = dedent("""\
         Add-Type -Language CSharp @"
         namespace System.Net
         {
@@ -588,8 +587,7 @@ def curl(session, url, proxy_address=None, proxy_port=None, insecure=False):
             }
         }
         "@;
-        [System.Net.Util]::Init()"""
-    )
+        [System.Net.Util]::Init()""")
 
     # TODO: WebRequest (wrapper on top of System.Net.WebClient) is painfully slow
     # for some reason compared to the 3rd-party curl.exe tool, but let's use it for now.

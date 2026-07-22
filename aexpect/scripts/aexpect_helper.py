@@ -81,7 +81,7 @@ def main():  # too-many-* pylint:disable=R0914,R0912,R0915
     os.putenv("TERM", "dumb")
 
     server_log.info("Forking child process for command")
-    (shell_pid, shell_fd) = pty.fork()
+    shell_pid, shell_fd = pty.fork()
     if shell_pid == 0:
         # Child process: run the command in a subshell
         if len(command) > 255:
